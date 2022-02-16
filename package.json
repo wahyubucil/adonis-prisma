@@ -58,6 +58,11 @@
     "@prisma/client": "^3.9.2",
     "prisma": "^3.9.2"
   },
+  "peerDependenciesMeta": {
+    "@adonisjs/auth": {
+      "optional": true
+    }
+  },
   "config": {
     "commitizen": {
       "path": "cz-conventional-changelog"
