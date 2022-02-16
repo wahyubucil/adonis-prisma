@@ -1,5 +1,8 @@
 {
   "extends": "./node_modules/@adonisjs/mrm-preset/_tsconfig",
+  "compilerOptions": {
+    "skipLibCheck": true
+  },
   "files": [
     "./node_modules/@adonisjs/application/build/adonis-typings/index.d.ts",
     "./node_modules/@adonisjs/hash/build/adonis-typings/index.d.ts",
