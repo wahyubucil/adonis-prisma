@@ -1,6 +1,6 @@
 {
   "name": "@wahyubucil/adonis-prisma",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "Prisma Provider for AdonisJS",
   "main": "build/src/UserProvider.js",
   "files": [
@@ -118,5 +118,11 @@
     "bracketSpacing": true,
     "arrowParens": "always",
     "printWidth": 100
-  }
+  },
+  "adonisjs": {
+		"types": "@wahyubucil/adonis-prisma",
+		"providers": [
+			"@wahyubucil/adonis-prisma"
+		]
+	}
 }
