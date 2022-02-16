@@ -6,7 +6,7 @@
   "files": [
     "build/src"
   ],
-  "typings": "./build/adonis-typings/index.d.ts",
+  "types": "./build/adonis-typings/index.d.ts",
   "keywords": [
     "AdonisJS",
     "Prisma",
