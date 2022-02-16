@@ -152,7 +152,3 @@ The driver to use for verifying the user password hash. It is used by the `auth.
 [license-url]: LICENSE.md 'license'
 [typescript-image]: https://img.shields.io/badge/Typescript-294E80.svg?style=for-the-badge&logo=typescript
 [typescript-url]: "typescript"
-
-```
-
-```

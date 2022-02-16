@@ -4,6 +4,8 @@
   "description": "Prisma Provider for AdonisJS",
   "main": "build/src/UserProvider.js",
   "files": [
+    "build/adonis-typings",
+    "build/providers",
     "build/src"
   ],
   "types": "./build/adonis-typings/index.d.ts",
