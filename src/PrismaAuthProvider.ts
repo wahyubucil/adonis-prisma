@@ -1,31 +1,17 @@
-import type { HashContract, HashersList } from '@ioc:Adonis/Core/Hash'
-import type { UserProviderContract, ProviderUserContract } from '@ioc:Adonis/Addons/Auth'
-import type { Prisma, PrismaClient } from '@prisma/client'
-
-/**
- * Shape of the extended property of user object for "PrismaAuthProvider" class.
- */
-export type BaseUser = {
-  password: string
-  rememberMeToken: string | null
-}
-
-/**
- * The shape of configuration accepted by the PrismaAuthProvider.
- */
-export type PrismaAuthProviderConfig<User extends BaseUser> = {
-  driver: 'prisma'
-  identifierKey: string
-  uids: (keyof Omit<User, keyof BaseUser>)[]
-  model: Lowercase<Prisma.ModelName>
-  hashDriver?: keyof HashersList
-}
+import type { HashContract } from '@ioc:Adonis/Core/Hash'
+import type { ProviderUserContract } from '@ioc:Adonis/Addons/Auth'
+import type {
+  PrismaAuthBaseUser,
+  PrismaAuthProviderConfig,
+  PrismaAuthProviderContract,
+} from '@ioc:Adonis/Addons/Prisma'
+import type { PrismaClient } from '@prisma/client'
 
 /**
  * Provider user works as a bridge between your User provider and
  * the AdonisJS auth module.
  */
-class ProviderUser<User extends BaseUser> implements ProviderUserContract<User> {
+class ProviderUser<User extends PrismaAuthBaseUser> implements ProviderUserContract<User> {
   constructor(
     public user: User | null,
     private config: PrismaAuthProviderConfig<User>,
@@ -64,7 +50,9 @@ class ProviderUser<User extends BaseUser> implements ProviderUserContract<User> 
 /**
  * The User provider implementation to lookup a user for different operations
  */
-export class UserProvider<User extends BaseUser> implements UserProviderContract<User> {
+export class PrismaAuthProvider<User extends PrismaAuthBaseUser>
+  implements PrismaAuthProviderContract<User>
+{
   constructor(
     private config: PrismaAuthProviderConfig<User>,
     private hash: HashContract,
