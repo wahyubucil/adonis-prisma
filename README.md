@@ -50,11 +50,48 @@ export default class UsersController {
 
 ### Authentication (Prisma Auth Provider)
 
-Make sure you read the [AdonisJS Authentication guide](https://docs.adonisjs.com/guides/auth/introduction) first, and configure the Adonis Auth.
+Install and configure Adonis Auth first:
 
-You don't need to configure Lucid, if it's auto-generated, remove all Lucid-related files like Model and Migration, also Lucid-related configs on `contracts/auth.ts` and `config/auth.ts`.
+```sh
+npm i @adonisjs/auth
+node ace configure @adonisjs/auth
+```
 
-After configure the Adonis Auth, you need to config Prisma Auth Provider on `contracts/auth.ts` and `config/auth.ts`. For example:
+When configuring you'll be asked some questions related to the provider. Because we're not using the default provider, answer the following questions like these so we can complete the configuration:
+
+```
+❯ Select provider for finding users · database
+...
+❯ Enter the database table name to look up users · users
+❯ Create migration for the users table? (y/N) · false
+...
+```
+
+Other questions like `guard`, `storing API tokens`, etc, are based on your preference.
+
+After configure the Adonis Auth, you need to config Prisma Auth Provider. Here's the example.
+
+First, define the schema. Example `schema.prisma`:
+
+```prisma
+// prisma/schema.prisma
+
+...
+
+model User {
+  id              String  @id @default(cuid())
+  email           String  @unique
+  password        String
+  rememberMeToken String?
+  name            String
+}
+
+...
+```
+
+**IMPORTANT**: You need to define `password` and `rememberMeToken` fields like that because those fields are required.
+
+After configuring the schema, you need to config Prisma Auth Provider on `contracts/auth.ts` and `config/auth.ts`. For example:
 
 ```ts
 // contracts/auth.ts
@@ -96,6 +133,12 @@ const authConfig: AuthConfig = {
 export default authConfig
 ```
 
+Then, you're ready to go!
+
+The rest usage is the same as other providers. You can refer to the [AdonisJS Authentication guide](https://docs.adonisjs.com/guides/auth/introduction) about the implementation.
+
+#### Configuration Options
+
 Following is the list of all the available configuration options.
 
 ```ts
@@ -110,19 +153,19 @@ Following is the list of all the available configuration options.
 }
 ```
 
-#### driver
+##### driver
 
 The driver name must always be set to `prisma`.
 
 ---
 
-#### identifierKey
+##### identifierKey
 
 The `identifierKey` is usually the primary key on the configured model. The authentication package needs it to uniquely identify a user.
 
 ---
 
-#### uids
+##### uids
 
 An array of model columns to use for the user lookup. The `auth.login` method uses the `uids` to find a user by the provided value.
 
@@ -130,13 +173,13 @@ For example: If your application allows login with email and username both, then
 
 ---
 
-#### model
+##### model
 
 The model to use for user lookup.
 
 ---
 
-#### hashDriver
+##### hashDriver (optional)
 
 The driver to use for verifying the user password hash. It is used by the `auth.login` method. If not defined, we will use the default hash driver from the `config/hash.ts` file.
 
