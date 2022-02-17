@@ -57,7 +57,7 @@ npm i @adonisjs/auth
 node ace configure @adonisjs/auth
 ```
 
-When configuring you'll be asked some questions related to the provider. Because we're not using the default provider, answer the following questions like these so we can complete the configuration:
+When configuring Adonis Auth, you'll be asked some questions related to the provider. Because we're not using the default provider, answer the following questions like these so we can complete the configuration:
 
 ```
 ❯ Select provider for finding users · database
@@ -69,7 +69,7 @@ When configuring you'll be asked some questions related to the provider. Because
 
 Other questions like `guard`, `storing API tokens`, etc, are based on your preference.
 
-After configure the Adonis Auth, you need to config Prisma Auth Provider. Here's the example.
+After configuring the Adonis Auth, you need to config Prisma Auth Provider. Here's the example.
 
 First, define the schema. Example `schema.prisma`:
 
