@@ -19,16 +19,16 @@ export default class PrismaProvider {
   /**
    * Extend Adonis Auth with Prisma Auth Provider
    */
-  public async boot() {
-    const Auth = this.app.container.resolveBinding('Adonis/Addons/Auth')
-    const Hash = this.app.container.resolveBinding('Adonis/Core/Hash')
-    const Prisma = this.app.container.resolveBinding('Adonis/Addons/Prisma')
-
-    const { PrismaAuthProvider } = await import('../src/PrismaAuthProvider')
-
-    Auth.extend('provider', 'prisma', (_, __, config) => {
-      return new PrismaAuthProvider(config, Hash, Prisma)
-    })
+  public boot() {
+    this.app.container.withBindings(
+      ['Adonis/Addons/Auth', 'Adonis/Core/Hash', 'Adonis/Addons/Prisma'],
+      async (Auth, Hash, Prisma) => {
+        const { PrismaAuthProvider } = await import('../src/PrismaAuthProvider')
+        Auth.extend('provider', 'prisma', (_, __, config) => {
+          return new PrismaAuthProvider(config, Hash, Prisma)
+        })
+      }
+    )
   }
 
   /**
