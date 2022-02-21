@@ -95,7 +95,7 @@ After configuring the schema, you need to config Prisma Auth Provider on `contra
 
 ```ts
 // contracts/auth.ts
-import { PrismaAuthProviderContract, PrismaAuthProviderConfig } from '@ioc:/Adonis/Addons/Prisma'
+import { PrismaAuthProviderContract, PrismaAuthProviderConfig } from '@ioc:Adonis/Addons/Prisma'
 import { User } from '@prisma/client'
 
 declare module '@ioc:Adonis/Addons/Auth' {
