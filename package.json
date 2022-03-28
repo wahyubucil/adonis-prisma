@@ -32,33 +32,33 @@
     "sync-labels": "github-label-sync --labels ./node_modules/@adonisjs/mrm-preset/gh-labels.json wahyubucil/adonis-prisma"
   },
   "devDependencies": {
-    "@adonisjs/auth": "^8.0.10",
-    "@adonisjs/core": "^5.4.2",
-    "@adonisjs/mrm-preset": "^5.0.2",
-    "@adonisjs/require-ts": "^2.0.9",
-    "@prisma/client": "^3.9.2",
-    "@types/node": "^17.0.18",
+    "@adonisjs/auth": "^8.0.12",
+    "@adonisjs/core": "^5.6.2",
+    "@adonisjs/mrm-preset": "^5.0.3",
+    "@adonisjs/require-ts": "^2.0.10",
+    "@prisma/client": "^3.11.1",
+    "@types/node": "^17.0.23",
     "commitizen": "^4.2.4",
     "cz-conventional-changelog": "^3.3.0",
     "del-cli": "^4.0.1",
-    "eslint": "^8.9.0",
-    "eslint-config-prettier": "^8.3.0",
+    "eslint": "^8.12.0",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-adonis": "^2.1.0",
     "eslint-plugin-prettier": "^4.0.0",
     "github-label-sync": "^2.0.2",
     "husky": "^7.0.4",
     "japa": "^4.0.0",
-    "mrm": "^3.0.10",
-    "np": "^7.6.0",
-    "prettier": "^2.5.1",
-    "prisma": "^3.9.2",
-    "typescript": "^4.5.5"
+    "mrm": "^4.0.0",
+    "np": "^7.6.1",
+    "prettier": "^2.6.1",
+    "prisma": "^3.11.1",
+    "typescript": "^4.6.3"
   },
   "peerDependencies": {
-    "@adonisjs/auth": "^8.0.10",
-    "@adonisjs/core": "^5.4.2",
-    "@prisma/client": "^3.9.2",
-    "prisma": "^3.9.2"
+    "@adonisjs/auth": "^8.0.12",
+    "@adonisjs/core": "^5.6.2",
+    "@prisma/client": "^3.11.1",
+    "prisma": "^3.11.1"
   },
   "peerDependenciesMeta": {
     "@adonisjs/auth": {
