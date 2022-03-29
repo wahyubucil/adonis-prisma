@@ -7,7 +7,8 @@
     "build/adonis-typings",
     "build/commands",
     "build/providers",
-    "build/src"
+    "build/src",
+    "build/templates"
   ],
   "types": "./build/adonis-typings/index.d.ts",
   "keywords": [
