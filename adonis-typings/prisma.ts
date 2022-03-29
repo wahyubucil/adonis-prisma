@@ -5,6 +5,8 @@ declare module '@ioc:Adonis/Addons/Prisma' {
   // @ts-ignore `Prisma` need to generated first, so we ignore the error
   import type { PrismaClient, Prisma } from '@prisma/client'
 
+  /** PRISMA AUTH **/
+
   /**
    * Shape of the extended property of user object for PrismaProvider
    */
@@ -29,6 +31,22 @@ declare module '@ioc:Adonis/Addons/Prisma' {
    */
   export interface PrismaAuthProviderContract<User extends PrismaAuthBaseUser>
     extends UserProviderContract<User> {}
+
+  /** PRISMA SEEDER **/
+
+  /**
+   * Shape of seeder class
+   */
+  export type PrismaSeederConstructorContract = {
+    developmentOnly: boolean
+    new (): {
+      run(): Promise<void>
+    }
+  }
+
+  export const PrismaSeederBase: PrismaSeederConstructorContract
+
+  /** PRISMA CLIENT PROVIDER **/
 
   const prisma: PrismaClient
   export default prisma

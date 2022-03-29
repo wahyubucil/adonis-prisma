@@ -1,0 +1,9 @@
+import prisma, { PrismaSeederBase } from '@ioc:Adonis/Addons/Prisma'
+
+export default class {{ filename }}Seeder extends PrismaSeederBase {
+  public static developmentOnly = {{ developmentOnly }}
+
+  public async run() {
+    // Write your database queries inside the run method
+  }
+}
