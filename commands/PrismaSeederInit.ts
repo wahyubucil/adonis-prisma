@@ -9,9 +9,9 @@ export default class PrismaSeederInit extends BaseCommand {
     const stub = join(__dirname, '..', 'templates', 'seed-index.txt')
 
     this.generator
-      .addFile('seed')
+      .addFile('index')
       .stub(stub)
-      .destinationDir('prisma')
+      .destinationDir('prisma/seeders')
       .useMustache()
       .appRoot(this.application.cliCwd || this.application.appRoot)
 
