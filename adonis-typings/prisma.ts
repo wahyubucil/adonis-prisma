@@ -35,6 +35,24 @@ declare module '@ioc:Adonis/Addons/Prisma' {
   /** PRISMA SEEDER **/
 
   /**
+   * Prisma Seeder file node
+   */
+  export interface PrismaSeederFile {
+    absPath: string
+    name: string
+    getSource: () => unknown
+  }
+
+  /**
+   * Shape of file node returned by the run method
+   */
+  export type PrismaSeederStatus = {
+    status: 'pending' | 'completed' | 'failed' | 'ignored'
+    error?: any
+    file: PrismaSeederFile
+  }
+
+  /**
    * Shape of seeder class
    */
   export type PrismaSeederConstructorContract = {
