@@ -5,6 +5,7 @@
   "main": "build/providers/PrismaProvider.js",
   "files": [
     "build/adonis-typings",
+    "build/commands",
     "build/providers",
     "build/src"
   ],
@@ -133,6 +134,9 @@
     "types": "@wahyubucil/adonis-prisma",
     "providers": [
       "@wahyubucil/adonis-prisma"
+    ],
+    "commands": [
+      "@wahyubucil/adonis-prisma/build/commands"
     ]
   }
 }
