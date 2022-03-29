@@ -137,7 +137,7 @@ Then, you're ready to go!
 
 The rest usage is the same as other providers. You can refer to the [AdonisJS Authentication guide](https://docs.adonisjs.com/guides/auth/introduction) about the implementation.
 
-#### Configuration Options
+#### Configuration options
 
 Following is the list of all the available configuration options.
 
@@ -185,12 +185,114 @@ The driver to use for verifying the user password hash. It is used by the `auth.
 
 ---
 
-## TODO
+### Seeder (Prisma Seeder)
 
-- Maybe Seeder implementation?
+Init Prisma Seeder first with the following Ace command:
+
+```sh
+node ace prisma-seeder:init
+```
+
+It will create a file `prisma/seeders/index.ts` to define all of the seeders later.
+
+You can create a new seeder file by running the following Ace command:
+
+```sh
+node ace prisma-seeder:make User
+```
+
+It will create a file `prisma/seeders/User.ts`.
+
+Every seeder file must extend the `PrismaSeederBase` class and implement the `run` method. Here's an example implementation:
+
+```ts
+// prisma/seeders/User.ts
+
+import prisma, { PrismaSeederBase } from '@ioc:Adonis/Addons/Prisma'
+
+export default class UserSeeder extends PrismaSeederBase {
+  public static developmentOnly = false
+
+  public async run() {
+    await prisma.user.upsert({
+      where: {
+        email: 'viola@prisma.io',
+      },
+      update: {
+        name: 'Viola the Magnificent',
+      },
+      create: {
+        email: 'viola@prisma.io',
+        name: 'Viola the Magnificent',
+      },
+    })
+
+    await prisma.user.createMany({
+      data: [
+        { name: 'Bob', email: 'bob@prisma.io' },
+        { name: 'Bobo', email: 'bob@prisma.io' },
+        { name: 'Yewande', email: 'yewande@prisma.io' },
+        { name: 'Angelique', email: 'angelique@prisma.io' },
+      ],
+      skipDuplicates: true,
+    })
+  }
+}
+```
+
+After creating a seeder, add the file name to `prisma/seeders/index.ts`. That file is useful to arrange the execution order of all seeders. For example:
+
+```ts
+// prisma/seeders/index.ts
+
+/**
+ * Put all seeders filename here. It will be executed based on the order
+ */
+export default ['User', 'Category', 'Article']
+```
+
+#### Running seeders
+
+Before running seeders, make sure you've already config `prisma/seeders/index.ts` because the execution order will be based on that file.
+
+To run seeders, just run the following ace command:
+
+```sh
+node ace prisma-seeder:run
+```
+
+#### Development only seeders
+
+You can mark a seeder file as development only. This ensures that you don't seed your production database with dummy data by mistake. Seeders for development will only run when the `NODE_ENV` environment variable is set to `development`.
+
+You can create a development only seeder with `--dev` as the argument. For example:
+
+```sh
+node ace prisma-seeder:make User --dev
+```
+
+Or, if you want to make an existing seeder to development only, just change `developmentOnly` property to `true` on the implementation. For example:
+
+```ts
+import prisma, { PrismaSeederBase } from '@ioc:Adonis/Addons/Prisma'
+
+export default class UserSeeder extends PrismaSeederBase {
+  public static developmentOnly = true // <-- change this
+
+  public async run() {
+    // Write your database queries inside the run method
+  }
+}
+```
+
+---
+
+<div align="center">
+  <sub>Built with ❤︎ by <a href="https://twitter.com/wahyubucil">Wahyu "The GOAT" Bucil</a>
+</div>
 
 [npm-image]: https://img.shields.io/npm/v/@wahyubucil/adonis-prisma.svg?style=for-the-badge&logo=npm
-[npm-url]: https://npmjs.org/package/Anonymous 'npm'
+[npm-url]: https://npmjs.org/package/@wahyubucil/adonis-prisma 'npm'
 [license-image]: https://img.shields.io/npm/l/@wahyubucil/adonis-prisma?color=blueviolet&style=for-the-badge
 [license-url]: LICENSE.md 'license'
 [typescript-image]: https://img.shields.io/badge/Typescript-294E80.svg?style=for-the-badge&logo=typescript
