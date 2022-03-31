@@ -38,7 +38,7 @@ Import the Prisma Client from `@ioc/Adonis/Addons/Prisma`. For example:
 
 ```ts
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-import prisma from '@ioc:Adonis/Addons/Prisma'
+import { prisma } from '@ioc:Adonis/Addons/Prisma'
 
 export default class UsersController {
   public async index({}: HttpContextContract) {
@@ -208,7 +208,7 @@ Every seeder file must extend the `PrismaSeederBase` class and implement the `ru
 ```ts
 // prisma/seeders/User.ts
 
-import prisma, { PrismaSeederBase } from '@ioc:Adonis/Addons/Prisma'
+import { prisma, PrismaSeederBase } from '@ioc:Adonis/Addons/Prisma'
 
 export default class UserSeeder extends PrismaSeederBase {
   public static developmentOnly = false
@@ -274,7 +274,7 @@ node ace prisma-seeder:make User --dev
 Or, if you want to make an existing seeder to development only, just change `developmentOnly` property to `true` on the implementation. For example:
 
 ```ts
-import prisma, { PrismaSeederBase } from '@ioc:Adonis/Addons/Prisma'
+import { prisma, PrismaSeederBase } from '@ioc:Adonis/Addons/Prisma'
 
 export default class UserSeeder extends PrismaSeederBase {
   public static developmentOnly = true // <-- change this
