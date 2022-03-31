@@ -62,10 +62,10 @@ declare module '@ioc:Adonis/Addons/Prisma' {
     }
   }
 
-  export const PrismaSeederBase: PrismaSeederConstructorContract
+  const PrismaSeederBase: PrismaSeederConstructorContract
 
   /** PRISMA CLIENT PROVIDER **/
-
   const prisma: PrismaClient
-  export default prisma
+
+  export { prisma, PrismaSeederBase }
 }

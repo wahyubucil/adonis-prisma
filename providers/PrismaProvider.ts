@@ -12,7 +12,9 @@ export default class PrismaProvider {
    */
   public register() {
     this.app.container.singleton('Adonis/Addons/Prisma', () => {
-      return new PrismaClient()
+      const prisma = new PrismaClient()
+      const { PrismaSeederBase } = require('../src/PrismaSeederBase')
+      return { prisma, PrismaSeederBase }
     })
   }
 
