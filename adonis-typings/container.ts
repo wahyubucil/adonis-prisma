@@ -1,7 +1,7 @@
 declare module '@ioc:Adonis/Core/Application' {
-  import type { PrismaClient } from '@prisma/client'
+  import adonisPrisma from '@ioc:Adonis/Addons/Prisma'
 
   export interface ContainerBindings {
-    'Adonis/Addons/Prisma': PrismaClient
+    'Adonis/Addons/Prisma': typeof adonisPrisma
   }
 }

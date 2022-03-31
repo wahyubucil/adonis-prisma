@@ -24,10 +24,10 @@ export default class PrismaProvider {
   public boot() {
     this.app.container.withBindings(
       ['Adonis/Addons/Auth', 'Adonis/Core/Hash', 'Adonis/Addons/Prisma'],
-      async (Auth, Hash, Prisma) => {
+      async (Auth, Hash, { prisma }) => {
         const { PrismaAuthProvider } = await import('../src/PrismaAuthProvider')
         Auth.extend('provider', 'prisma', (_, __, config) => {
-          return new PrismaAuthProvider(config, Hash, Prisma)
+          return new PrismaAuthProvider(config, Hash, prisma)
         })
       }
     )
@@ -37,7 +37,7 @@ export default class PrismaProvider {
    * Disconnect Prisma on app shutdown
    */
   public async shutdown() {
-    const prisma = this.app.container.resolveBinding('Adonis/Addons/Prisma')
+    const { prisma } = this.app.container.resolveBinding('Adonis/Addons/Prisma')
     await prisma.$disconnect()
   }
 }
