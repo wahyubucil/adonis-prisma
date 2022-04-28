@@ -34,7 +34,7 @@ It will install the provider, and add typings.
 
 ### Prisma Client Provider
 
-Import the Prisma Client from `@ioc/Adonis/Addons/Prisma`. For example:
+Import the Prisma Client from `@ioc:Adonis/Addons/Prisma`. For example:
 
 ```ts
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
