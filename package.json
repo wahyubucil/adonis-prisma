@@ -1,6 +1,6 @@
 {
   "name": "@wahyubucil/adonis-prisma",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "Prisma Provider for AdonisJS",
   "main": "build/providers/PrismaProvider.js",
   "files": [
