@@ -1,6 +1,6 @@
 {
   "name": "@wahyubucil/adonis-prisma",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Prisma Provider for AdonisJS",
   "main": "build/providers/PrismaProvider.js",
   "files": [
@@ -39,7 +39,7 @@
     "@adonisjs/core": "^5.8.6",
     "@adonisjs/mrm-preset": "^5.0.3",
     "@adonisjs/require-ts": "^2.0.12",
-    "@prisma/client": "^4.2.1",
+    "@prisma/client": "^5.0.0",
     "@types/node": "^18.7.3",
     "commitizen": "^4.2.5",
     "copyfiles": "^2.4.1",
@@ -55,7 +55,7 @@
     "mrm": "^4.0.0",
     "np": "^7.6.2",
     "prettier": "^2.7.1",
-    "prisma": "^4.2.1",
+    "prisma": "^5.0.0",
     "typescript": "^4.7.4"
   },
   "dependencies": {
@@ -64,8 +64,8 @@
   "peerDependencies": {
     "@adonisjs/auth": "^8.2.1",
     "@adonisjs/core": "^5.8.6",
-    "@prisma/client": "^4.2.1",
-    "prisma": "^4.2.1"
+    "@prisma/client": "^5.0.0",
+    "prisma": "^5.0.0"
   },
   "peerDependenciesMeta": {
     "@adonisjs/auth": {
