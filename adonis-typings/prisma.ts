@@ -22,6 +22,7 @@ declare module '@ioc:Adonis/Addons/Prisma' {
     driver: 'prisma'
     identifierKey: string
     uids: (keyof Omit<User, keyof PrismaAuthBaseUser>)[]
+    // @ts-ignore `Prisma` need to generated first, so we ignore the error
     model: Lowercase<Prisma.ModelName>
     hashDriver?: keyof HashersList
   }
