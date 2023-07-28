@@ -62,8 +62,8 @@
     "@poppinss/utils": "^5.0.0"
   },
   "peerDependencies": {
-    "@adonisjs/auth": "^8.2.1",
-    "@adonisjs/core": "^5.8.6",
+    "@adonisjs/auth": "^8.2.3",
+    "@adonisjs/core": "^5.9.0",
     "@prisma/client": "^5.0.0",
     "prisma": "^5.0.0"
   },
@@ -97,7 +97,7 @@
     "core": false,
     "license": "MIT",
     "services": [],
-    "minNodeVersion": "16.14.0",
+    "minNodeVersion": "18.17.0",
     "probotApps": [
       "stale",
       "lock"
@@ -141,5 +141,9 @@
     "commands": [
       "@wahyubucil/adonis-prisma/build/commands"
     ]
+  },
+  "engines": {
+    "node": "18",
+    "npm": "9"
   }
 }
