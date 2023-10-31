@@ -59,7 +59,7 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
-    "@poppinss/utils": "^6.5.0"
+    "@poppinss/utils": "^5.0.0"
   },
   "peerDependencies": {
     "@adonisjs/auth": "^8.2.3",
